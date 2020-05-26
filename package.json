@@ -1,0 +1,22 @@
+{
+  "name": "aisport",
+  "version": "1.0.0",
+  "description": "我的毕设",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zhaoziqingg/AISport.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zhaoziqingg/AISport/issues"
+  },
+  "homepage": "https://github.com/Zhaoziqingg/AISport#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.3.1"
+  }
+}
