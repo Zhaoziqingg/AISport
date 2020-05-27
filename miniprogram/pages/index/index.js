@@ -53,6 +53,35 @@ Page({
     this.setData({ active: event.detail });
   },
 
+  toMyGrade(options)
+  {
+    wx.navigateTo({
+      url: '../myGrade/myGrade',
+    })
+
+  },
+  toMyClass(options)
+  {
+    wx.navigateTo({
+      url: '../myClass/myClass',
+    })
+
+  },
+  toMyGroup(options)
+  {
+    wx.navigateTo({
+      url: '../myGroup/myGroup',
+    })
+
+  },
+  toMyWork(options)
+  {
+    wx.navigateTo({
+      url: '../myWork/myWork',
+    })
+
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

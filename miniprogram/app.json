@@ -1,8 +1,11 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/login/login", 
-    "pages/myClass/myClass"
+    "pages/login/login",
+    "pages/myClass/myClass",
+    "pages/myGrade/myGrade",
+    "pages/myGroup/myGroup",
+    "pages/myWork/myWork"
   ],
   "usingComponents": {
     "van-field": "vant-weapp/field",
@@ -18,5 +21,4 @@
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"
- 
 }

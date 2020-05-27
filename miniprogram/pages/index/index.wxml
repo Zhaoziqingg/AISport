@@ -3,16 +3,16 @@
 
 <view  class="middle">
 
-     <view  class="smiddle"><image src="../images/ico/myCLass.png" class="mid-img"></image>
+     <view  class="smiddle" bindtap="toMyClass"><image src="../images/ico/myCLass.png" class="mid-img"></image>
      <text>我的课程</text>
      </view>
-      <view  class="smiddle"><image src="../images/ico/myGroup.png" class="mid-img"></image>
+      <view  class="smiddle" bindtap="toMyGroup"><image src="../images/ico/myGroup.png" class="mid-img"></image>
      <text>我运动组</text>
      </view>
-      <view  class="smiddle"><image src="../images/ico/myWork.png" class="mid-img"></image>
+      <view  class="smiddle" bindtap="toMyWork"><image src="../images/ico/myWork.png" class="mid-img"></image>
      <text>我的作业</text>
      </view>
-      <view  class="smiddle"><image src="../images/ico/myGrade.png" class="mid-img"></image>
+      <view  class="smiddle" bindtap="toMyGrade"><image src="../images/ico/myGrade.png" class="mid-img"></image>
      <text>我的成绩</text>
      </view>
 
@@ -52,7 +52,7 @@
         </view>
     </scroll-view>
 
-<van-tabbar active="{{ active }}" bind:change="onChange">
+<van-tabbar active="{{ active }}" bind:change="onChange" bindtap="toIndex">
   <van-tabbar-item info="3"  icon="wap-home-o">
     <image
       slot="icon"
@@ -68,9 +68,11 @@
     />
     首页
   </van-tabbar-item>
-  <van-tabbar-item icon="tv-o">课程</van-tabbar-item>
-  <van-tabbar-item icon="user-o">我的</van-tabbar-item>
+  <van-tabbar-item icon="tv-o" bindtap="toClass">课程</van-tabbar-item>
+  <van-tabbar-item icon="user-o" bindtap="toMy">我的</van-tabbar-item>
 </van-tabbar>
+
+<image src="../images/index/top.jpg" class="top-img"></image>
 
 
 
