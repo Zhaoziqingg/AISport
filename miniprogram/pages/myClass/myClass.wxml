@@ -1,3 +1,41 @@
 <!--miniprogram/pages/myClass/myClass.wxml-->
-<text>miniprogram/pages/myClass/myClass.wxml</text>
+
+<view>
+    <view class="tabRow">
+        <view bindtap="selectTab" class="tabItem {{currIdx==1?'active':''}}" data-index="1">我学过的课程</view>
+        <view bindtap="selectTab" class="tabItem {{currIdx==2?'active':''}}" data-index="2">我创建的课程</view>
+    </view>
+
+    <view style="margin-top:100rpx" >
+        <view bindtap="goActiveDet" wx:if="{{currIdx==1}}">
+            <view class="allcourse">
+               <view bindtap="toVideoTrain" data-course_type="{{item.course_type}}" wx:for="{{allCourse}}">
+                      <van-card 
+                           desc="{{item.time}}分钟"
+                           title="{{item.imgSrc}}"
+                           thumb="{{item.imgSrc}}"
+                        />
+               </view>
+            </view>
+        </view>
+        <view bindtap="goActiveDet"wx:if="{{currIdx==2}}">   
+            <view  class="goodsList" data-gid="{{item.id}}" wx:for="{{allCource}}">
+                <view class="goodsImg">
+                    <image class="goods-img" src="{{item.imgSrc}}"></image>
+                </view>
+                <view class="goodsRight">
+                     <view class="goodsTitle">{{item.title}}</view>
+                     <view class="goodsUser">{{item.time}}分钟</view>
+                     <view class="goodsDet">
+                        <view>
+                            <view class="bookNum">{{item.date}}</view>
+                        </view>
+                        <view class="toBook">分配运动组 </view>
+                    </view>
+                </view>
+        </view>
+             <!--<button bindtap="toCourse" class="download-btn"openType="contact">新建课程</button>-->
+        </view>
+    </view>
+</view>
 

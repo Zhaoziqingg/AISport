@@ -53,6 +53,12 @@ Page({
   onChange(event) {
     this.setData({ active: event.detail });
   },
+  toVideoTrain(options)
+  {
+    wx.navigateTo({
+      url: '../course/videoTrain/videoTrain',
+    })
+  },
 
   toMyGrade(options)
   {
@@ -89,6 +95,12 @@ Page({
     })
   },
  
+  toGroup(options)
+  {
+    wx.navigateTo({
+      url: '../myGroup/myGroup',
+    })
+  },
 
   toMy(options)
   {

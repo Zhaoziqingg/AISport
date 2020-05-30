@@ -5,6 +5,30 @@ Page({
    * 页面的初始数据
    */
   data: {
+    goodsList: [ {
+      title: "发财树绿萝栀子花海棠花卉盆栽发财树绿萝栀子花海棠花卉盆栽",
+      src: "../../img/拉伸组2.jpg",
+      price: "399.00",
+      groupNum: 6,
+      userNum: 2,
+      discount: 20
+  }, {
+      title: "发财树绿萝栀子花海棠花卉盆栽",
+      src: "../../img/拉伸组2.jpg",
+      price: "399.00",
+      groupNum: 6,
+      userNum: 2,
+      discount: 20
+  }, {
+      title: "发财树绿萝栀子花海棠花卉盆栽",
+      src: "../../img/拉伸组2.jpg",
+      price: "399.00",
+      groupNum: 6,
+      userNum: 2,
+      discount: 20
+  } ],
+  show: "0",
+  priceFlag: !0
 
   },
 

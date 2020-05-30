@@ -1,15 +1,17 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/course/course",
     "pages/My/My",
     "pages/login/login",
-    "pages/index/index",
-    
+   
     "pages/myClass/myClass",
     "pages/myGrade/myGrade",
     "pages/myGroup/myGroup",
     "pages/myWork/myWork",
-    
-    "pages/course/course"
+   
+    "pages/course/videoTrain/videoTrain",
+    "pages/course/endTrain/index"
   ],
   "usingComponents": {
     "van-field": "vant-weapp/field",
@@ -21,30 +23,27 @@
     "van-cell-group": "vant-weapp/cell-group",
     "van-icon": "vant-weapp/icon"
   },
-
-  "tabBar":
-  {
-    "list":[
+  "tabBar": {
+    "list": [
       {
-        "text":"首页",
-        "pagePath":"pages/index/index",
-        "iconPath":"img/index_uns.png",
-        "selectedIconPath":"img/index_uns.png"
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "img/index_uns.png",
+        "selectedIconPath": "img/index_uns.png"
       },
       {
-        "text":"课程",
-        "pagePath":"pages/course/course",
-        "iconPath":"img/course_uns.png",
-        "selectedIconPath":"img/course_s.png"
+        "text": "课程",
+        "pagePath": "pages/course/course",
+        "iconPath": "img/course_uns.png",
+        "selectedIconPath": "img/course_s.png"
       },
       {
-        "text":"我的",
-        "pagePath":"pages/My/My",
-        "iconPath":"img/person_uns.png",
-        "selectedIconPath":"img/person_s.png"
-      }        
+        "text": "我的",
+        "pagePath": "pages/My/My",
+        "iconPath": "img/person_uns.png",
+        "selectedIconPath": "img/person_s.png"
+      }
     ],
-
     "color": "#000000",
     "selectedColor": "rgb(41,193,146)"
   },

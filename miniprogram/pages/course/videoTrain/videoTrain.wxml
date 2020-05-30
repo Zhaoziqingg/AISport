@@ -1,0 +1,28 @@
+<!--miniprogram/pages/course/videoTrain/videoTrain.wxml-->
+<view class="box">
+    <view class="images">
+        <view class="own-video">
+            <video controls  bindended="bindEnd" binderror="onPlayError" bindwaiting="onPlayWaiting"  
+            id="myVideo" objectFit="cover" src="{{videoUrl}}" autoplay="false"></video>
+        </view>
+    </view>
+</view>
+
+<view>
+            <button bindtap="toEndTrain" class="over-btn">结束训练</button>
+</view>
+<!--
+<view class="main">
+            <view wx:if="{{stepList.length}}">
+                <view class="title">课程安排</view>
+                <view class="scroll-box">
+                    <scroll-box bindtapevent="stepIndex" current="{{currentIndex}}" scrollData="{{stepList}}" showcolor="{{showColor}}"></scroll-box>
+                </view>
+             </view>
+            <view class="ad ad-banner">
+                <ad adIntervals="30" unitId="adunit-1891e23a173b139f"></ad>
+            </view>
+            <button bindtap="endTrain" class="over-btn">结束训练</button>
+          </view>
+</view> 
+-->

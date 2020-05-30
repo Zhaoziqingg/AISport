@@ -27,7 +27,7 @@
     </view>
 
     <view bindtap="goWritings" class="recommend-list"  wx:for="{{productRecommend}}">
-        <view class="recommend-img-block">
+        <view class="recommend-img-block" bindtap="toVideoTrain">
             <image class="recommend-list-img" src="{{item.img}}"></image>
         </view>
         <view class="recommend-title">{{item.title}}</view>
@@ -39,7 +39,7 @@
             <view class="fight-list-title-icon"></view>
       推荐运动组
     </view>
-        <view bindtap="goGroup" class="more_btn">更多运动组 ></view>
+        <view bindtap="toGroup" class="more_btn">更多运动组 ></view>
     </view>
     <scroll-view scrollX="true" style="border-bottom:10rpx solid #f5f5f5;" wx:if="{{comGroup.length>0}}">
         <view class="fight-list">
