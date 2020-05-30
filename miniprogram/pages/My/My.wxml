@@ -1,0 +1,38 @@
+<!--miniprogram/pages/My/My.wxml-->
+<van-card
+
+  desc="{{userInfo.province}}"
+  title="{{userInfo.nickName}}"
+  thumb="{{userInfo.avatarUrl}}"
+/>
+
+ 
+<van-cell
+  is-link
+  icon="video-o" 
+  title="我的课程"
+  link-type="navigateTo"
+  url="../myClass/myClass"
+/>
+<van-cell
+  is-link
+  icon="friends-o"
+  title="我的运动组"
+  link-type="navigateTo"
+  url="../myGroup/myGroup"
+/>
+<van-cell
+  is-link
+   icon="bar-chart-o"
+  title="课程成绩"
+  link-type="navigateTo"
+  url="../myGrade/myGrade"
+/>
+
+<van-cell
+  is-link
+   icon="setting-o"
+  title="设置"
+  link-type="navigateTo"
+  url="../myGrade/myGrade"
+/>

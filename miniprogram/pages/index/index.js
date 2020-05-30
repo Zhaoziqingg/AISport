@@ -4,9 +4,10 @@ Page({
   /**
    * 页面的初始数据
    */
+  name: 'App',
   data: {
-
     active: 0,
+    tabBarList: [],
     icon: {
       normal: 'https://img.yzcdn.cn/vant/user-inactive.png',
       active: 'https://img.yzcdn.cn/vant/user-active.png',
@@ -58,28 +59,42 @@ Page({
     wx.navigateTo({
       url: '../myGrade/myGrade',
     })
-
   },
+
   toMyClass(options)
   {
     wx.navigateTo({
       url: '../myClass/myClass',
     })
-
   },
+
   toMyGroup(options)
   {
     wx.navigateTo({
       url: '../myGroup/myGroup',
     })
-
   },
+
   toMyWork(options)
   {
     wx.navigateTo({
       url: '../myWork/myWork',
     })
+  },
 
+  toCourse(options)
+  {
+    wx.navigateTo({
+      url: '../course/course',
+    })
+  },
+ 
+
+  toMy(options)
+  {
+    wx.navigateTo({
+      url: '../My/My',
+    })
   },
 
   /**

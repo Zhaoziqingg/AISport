@@ -1,5 +1,10 @@
 //app.js
 App({
+  data: {
+    //用户个人信息
+   
+  },
+
   onLaunch: function () {
     
     if (!wx.cloud) {

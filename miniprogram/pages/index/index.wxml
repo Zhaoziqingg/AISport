@@ -23,7 +23,7 @@
             <view class="fight-list-title-icon"></view>
         推荐课程
           </view>
-        <view bindtap="goAllarticle" class="more_btn">更多课程></view>
+        <view bindtap="toCourse" class="more_btn">更多课程></view>
     </view>
 
     <view bindtap="goWritings" class="recommend-list"  wx:for="{{productRecommend}}">
@@ -52,6 +52,7 @@
         </view>
     </scroll-view>
 
+<!--
 <van-tabbar active="{{ active }}" bind:change="onChange" bindtap="toIndex">
   <van-tabbar-item info="3"  icon="wap-home-o">
     <image
@@ -68,10 +69,10 @@
     />
     首页
   </van-tabbar-item>
-  <van-tabbar-item icon="tv-o" bindtap="toClass">课程</van-tabbar-item>
+  <van-tabbar-item icon="tv-o" bindtap="toCourse">课程</van-tabbar-item>
   <van-tabbar-item icon="user-o" bindtap="toMy">我的</van-tabbar-item>
 </van-tabbar>
-
+-->
 <image src="../images/index/top.jpg" class="top-img"></image>
 
 
