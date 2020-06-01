@@ -1,41 +1,47 @@
 <!--miniprogram/pages/myClass/myClass.wxml-->
 
 <view>
-    <view class="tabRow">
-        <view bindtap="selectTab" class="tabItem {{currIdx==1?'active':''}}" data-index="1">我学过的课程</view>
-        <view bindtap="selectTab" class="tabItem {{currIdx==2?'active':''}}" data-index="2">我创建的课程</view>
-    </view>
+        <view class="tabRow">
+            <view bindtap="selectTab" class="tabItem {{currIdx==1?'active':''}}" data-index="1">我学过的课程</view>
+            <view bindtap="selectTab" class="tabItem {{currIdx==2?'active':''}}" data-index="2">我创建的课程</view>
+        </view>
 
     <view style="margin-top:100rpx" >
-        <view bindtap="goActiveDet" wx:if="{{currIdx==1}}">
-            <view class="allcourse">
-               <view bindtap="toVideoTrain" data-course_type="{{item.course_type}}" wx:for="{{allCourse}}">
-                      <van-card 
-                           desc="{{item.time}}分钟"
-                           title="{{item.imgSrc}}"
-                           thumb="{{item.imgSrc}}"
-                        />
-               </view>
+        <view  wx:if="{{currIdx==1}}">
+             <view  class="courseList" wx:for="{{allCourse}}">
+               <van-row class="one-row">
+                   <van-col span="8">
+                         <view class="list_img"> <image  src="{{item.imgSrc}}"> </image> </view>
+                   </van-col>
+                   <van-col span="16">
+                           <view class="list_text">  
+                                <van-row class="title">{{item.title}}</van-row>
+                                <van-row class="time">{{item.time}}分钟</van-row>
+                                <view  class="date"> <van-row>{{item.date}}</van-row></view>
+                            </view>
+                   </van-col>
+                </van-row>
             </view>
         </view>
-        <view bindtap="goActiveDet"wx:if="{{currIdx==2}}">   
-            <view  class="goodsList" data-gid="{{item.id}}" wx:for="{{allCource}}">
-                <view class="goodsImg">
-                    <image class="goods-img" src="{{item.imgSrc}}"></image>
-                </view>
-                <view class="goodsRight">
-                     <view class="goodsTitle">{{item.title}}</view>
-                     <view class="goodsUser">{{item.time}}分钟</view>
-                     <view class="goodsDet">
-                        <view>
-                            <view class="bookNum">{{item.date}}</view>
+
+        <view wx:if="{{currIdx==2}}">   
+           <view  class="courseList" wx:for="{{allCourse}}">
+               <van-row>
+                   <van-col span="8">
+                     <view class="list_img"> <image  src="{{item.imgSrc}}"> </image></view>
+                   </van-col>
+                   <van-col span="16">
+                        <view class="list_text">  
+                            <van-row class="title">{{item.title}}</van-row>
+                            <van-row class="time">{{item.time}}分钟</van-row>
+                            <view  class="date"><van-row>{{item.date}}</van-row></view>
                         </view>
-                        <view class="toBook">分配运动组 </view>
-                    </view>
-                </view>
-        </view>
-             <!--<button bindtap="toCourse" class="download-btn"openType="contact">新建课程</button>-->
+                  </van-col>
+                </van-row>            
+          </view>
+            <button  bindtap="toNew" class="download-btn" data-statu="open">新建课程</button>
         </view>
     </view>
 </view>
+
 

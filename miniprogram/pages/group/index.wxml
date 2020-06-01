@@ -1,0 +1,28 @@
+<!--miniprogram/pages/group/index.wxml-->
+<van-search
+  value="{{group_name}}"
+  placeholder="请输入运动组名称"
+  show-action
+  input-align="center"
+  bind:search="onSearch"
+  bind:cancel="onCancel"
+  shape="round"
+  use-right-icon-slot
+>
+   <view slot="action" bind:tap="onClick">搜索</view>
+</van-search>
+
+       <view  class="groupList" wx:for="{{allGroup}}">
+               <van-row>
+                   <van-col span="8">
+                     <view class="list_img"> <image  src="{{item.imgSrc}}"> </image></view>
+                   </van-col>
+                   <van-col span="16">
+                        <view class="list_text">  
+                            <van-row class="title">{{item.title}}</van-row>
+                            <van-row class="time">{{item.time}}分钟</van-row>
+                            <view  class="date"><van-row>{{item.date}}</van-row></view>
+                        </view>
+                  </van-col>
+                </van-row>            
+          </view>

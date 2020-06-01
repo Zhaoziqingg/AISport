@@ -22,7 +22,12 @@ App({
         traceUser: true,
       })
     }
-
-    this.globalData = {}
+    
+    this.globalData = {
+      myfile:[],
+      multiId:[],
+      multiLen:0,
+      usrId:'',
+    }
   }
 })

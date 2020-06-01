@@ -6,6 +6,6 @@
         </view>
         <view class="over-title">恭喜 完成训练</view>
         <view class="end-main">坚持训练，为了遇见更好的自己</view>
-        <button bindtap="toCourse" class="download-btn"openType="contact">更多课程</button>
+        <button bindtap="toCourse" class="download-btn">更多课程</button>
     </view>
 </view>

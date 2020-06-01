@@ -1,8 +1,4 @@
-.courseList
-{
-  height: 250rpx;
- 
-}
+/* miniprogram/pages/group/index.wxss */
 
 .list_img
 {
@@ -24,23 +20,29 @@
 {
   margin-top: 25rpx;
   flex-direction: column;
+ 
 }
 
 .title
 {
-  font-size: large;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.one-row
+{
+  border-top:2rpx solid #ddd;
 }
 
 .time
 {
-  font-weight: 300;
-  font-size: medium;
+  font-weight: 400;
+  font-size: 14px;
   color: rgb(99, 98, 98);
 }
 .date
 {
-  font-weight: 300;
-  font-size: medium;
+  font-weight: 400;
+  font-size: 14px;
   margin-top: 70rpx;
 }

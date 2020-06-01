@@ -8,9 +8,10 @@ Page({
         currIdx: 1,
         select: 2,
         imgs:true,
+
         allCourse:[
           {
-             imgSrc:"../../img/拉伸组2.jpg",
+             imgSrc:"../images/index/拉伸组1.jpg",
              title:'五分钟拉伸',
              time:'5',
              isFinish:true,
@@ -19,7 +20,7 @@ Page({
              date:"11:23"
           },
           {  
-            imgSrc:"../../img/拉伸组1.jpg",
+            imgSrc:"../images/index/拉伸组2.jpg",
              title:'十分钟拉伸',
              time:'10',
              isFinish:false,
@@ -30,12 +31,20 @@ Page({
         ]
 
   },
-  selectTab: function(t) {
-    var e = t.currentTarget.dataset.index;
-    this.setData({
-        currIdx: e
-    }), this.onShow();
-},
+      selectTab: function(t) {
+        var e = t.currentTarget.dataset.index;
+        this.setData({
+            currIdx: e
+        }), this.onShow();
+    },
+  
+    toNew: function(options)
+    {
+      wx.navigateTo({
+        url: './newClass/index',
+      })
+    },
+    
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,0 +1,33 @@
+<!--miniprogram/pages/myClass/newClass/index.wxml-->
+
+<view>
+  <van-field 
+      value="{{title}}"
+      placeholder="请输入课程名称"
+      bind:change="onChange"
+    />
+    <van-field 
+      value="{{introdece}}"
+      placeholder="请输入课程简介"
+      bind:change="onChange"
+      custom-style="height:200px;margin-top:10px"
+    />
+    <van-cell title="选择视频" 
+      is-link
+      custom-style="margin-top:10px"
+      bind:click="chooseVideo"
+     />
+     <van-cell title="选择运动组" 
+      is-link
+      custom-style="margin-top:10px"
+      bind:click="chooseGroup"
+     />
+     <van-field 
+      value="{{duration}}"
+      type="number"
+      placeholder="请输入课程时间"
+      bind:change="onChange"
+        custom-style="margin-top:10px"
+    />
+     <button  bindtap="upfile" class="download-btn" data-statu="open">下一步</button>
+</view>

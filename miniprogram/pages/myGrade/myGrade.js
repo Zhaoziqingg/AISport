@@ -5,30 +5,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goodsList: [ {
-      title: "发财树绿萝栀子花海棠花卉盆栽发财树绿萝栀子花海棠花卉盆栽",
-      src: "../../img/拉伸组2.jpg",
-      price: "399.00",
-      groupNum: 6,
-      userNum: 2,
-      discount: 20
-  }, {
-      title: "发财树绿萝栀子花海棠花卉盆栽",
-      src: "../../img/拉伸组2.jpg",
-      price: "399.00",
-      groupNum: 6,
-      userNum: 2,
-      discount: 20
-  }, {
-      title: "发财树绿萝栀子花海棠花卉盆栽",
-      src: "../../img/拉伸组2.jpg",
-      price: "399.00",
-      groupNum: 6,
-      userNum: 2,
-      discount: 20
-  } ],
-  show: "0",
-  priceFlag: !0
+
+    allCourse:[
+      {
+         imgSrc:"../../img/拉伸组2.jpg",
+         title:'五分钟拉伸',
+         time:'5',
+         isFinish:true,
+         creator:"1",
+         id:"65",
+         date:"2020/01/03 11:23"
+      },
+      {  
+        imgSrc:"../../img/拉伸组1.jpg",
+         title:'十分钟拉伸（简易版）',
+         time:'10',
+         isFinish:false,
+         creator:"1",
+         id:"67",
+         date:"2020/01/03 11:23"
+      }
+    ]
+  
 
   },
 
