@@ -18,6 +18,10 @@ function is_video(suffix) {
   let regex = /^.(mp4|flv|gif)$/
   return regex.test(suffix.toLowerCase());
 }
+function is_image(suffix) {
+  let regex = /^.(mp4|flv|gif|jpg|png)$/
+  return regex.test(suffix.toLowerCase());
+}
 
 function formatDate(t){
   var date = new Date(t);
@@ -157,16 +161,16 @@ export default class DirectoryService{
    * @param {function} options.success - 成功回调
    * @param {function} options.fail - 失败回调，会覆盖初始设置的onFail监听器
    */
+
   upload({
     filePath,
     success=null,
     fail=null
   }){ 
-
     let suffix = getSuffix(filePath);
     let fileID = generateUUID();
     const db = wx.cloud.database();
-    const filedb = db.collection('file');
+    const filedb = db.collection('video');
     let fileSize = null;
     getFileInfo(filePath)
     .then(res => {

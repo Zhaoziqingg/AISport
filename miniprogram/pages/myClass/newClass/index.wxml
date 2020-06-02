@@ -1,5 +1,6 @@
 <!--miniprogram/pages/myClass/newClass/index.wxml-->
 
+<form bindsubmit="upfile">
 <view>
   <van-field 
       value="{{title}}"
@@ -29,5 +30,6 @@
       bind:change="onChange"
         custom-style="margin-top:10px"
     />
-     <button  bindtap="upfile" class="download-btn" data-statu="open">下一步</button>
+     <button  class="download-btn" form-type="submit" >下一步</button>
 </view>
+</form>

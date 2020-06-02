@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/myClass/myClass",
     "pages/group/index",
     "pages/myClass/newClass/index",
-    "pages/myClass/myClass",
+    
     "pages/index/index",
     "pages/myGrade/myGrade",
     "pages/course/course",
