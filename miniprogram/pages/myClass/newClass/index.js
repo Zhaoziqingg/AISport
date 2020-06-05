@@ -9,12 +9,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {},
     logged: false,
     takeSession: false,
     requestResult: '',
-    tempFiles:[],
-    filepath:''
+    filepath:'',
+    coverPath:'',
+    title:'',
+    group_name:'',
+    introduce:'',
+    duration:'',
+    
   },
   
       turn:function(e){
@@ -33,18 +37,31 @@ Page({
                   // event.detail 为当前输入的值
                   console.log(event.detail);
                 },
-    upfile () {
+    upfile (r) {
+                  console.log("r",r)
+                  this.setData({
+                    title:r.detail.value.title,
+                    introduce:r.detail.value.introdece,
+                    duration:r.detail.value.duration,
+                  })
                     wx.showLoading({
                       title: '上传中',
                     })
                     new Promise((resolve, reject) => {
                         var path = this.data.filepath;
-                        console.log("path",path)
+                        var title = this.data.title;
+                        var introduce = this.data.introduce;
+                        var duration = this.data.duration;
+                        var coverPath = this.data.coverPath;
                         directory.upload({
+                          coverPath:coverPath,
                           filePath: path,
+                          title:title,
+                          group_name:"瑜伽",
+                          introduce:introduce,
+                          duration:duration,
                           success:(res)=>{
                             console.log(res);               
-                              console.log("成功",path);
                               resolve(res);                   
                           },
                           fail:(res)=>{
@@ -59,6 +76,9 @@ Page({
                       wx.showToast({
                         title: '上传成功',
                       });
+                      wx.navigateBack({
+                        delta: 1
+                      })
                     }).catch(console.log)
                   },
       chooseVideo()
@@ -69,13 +89,31 @@ Page({
                       type: 'all',
                       success:res=>
                          {          
-                          console.log(res)
+                          //console.log(res)
                           that.setData({
                             filepath:res.tempFiles[0].path
                           })
                          }
-                      })   
+                      }) 
+        
       },
+      chooseCover()
+      {
+        var that=this;
+          wx.chooseImage({
+            count: 1,
+            type: 'all',
+            success:res=>
+               {          
+               // console.log(res)
+                that.setData({
+                  coverPath:res.tempFiles[0].path                
+                })
+                
+               }
+            }) 
+
+},
       
                 
 
@@ -83,7 +121,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+         
   },
 
   /**

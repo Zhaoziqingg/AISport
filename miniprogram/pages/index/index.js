@@ -1,13 +1,17 @@
 // miniprogram/pages/index/index.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
+  
   name: 'App',
   data: {
     active: 0,
     tabBarList: [],
+    avatarUrl:'',
+    nickName:'',
     icon: {
       normal: 'https://img.yzcdn.cn/vant/user-inactive.png',
       active: 'https://img.yzcdn.cn/vant/user-active.png',
@@ -98,7 +102,7 @@ Page({
   toGroup(options)
   {
     wx.navigateTo({
-      url: '../myGroup/myGroup',
+      url: '../group/index',
     })
   },
 
@@ -113,7 +117,55 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+           //获取openID
+           wx.cloud.callFunction({
+             name:'login',
+             data:{},
+             success: res => {
+              //console.log('user openid: ', res.result.openid)
+              app.globalData.usrId = res.result.openid
+              console.log(app.globalData.usrId)
+            },
+            fail: err => {
+              console.error('[云函数] [login] 调用失败', err)
+            }
+           })
+            
+              // 获取用户信息
+              wx.getSetting({
+                success: res => {
+                  if (res.authSetting['scope.userInfo']) {
+                    // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+                    wx.getUserInfo({
+                      success: res => {
+                        console.log(res.userInfo)
+                        app.globalData.nickName = res.userInfo.nickName
+                        app.globalData.avatarUrl = res.userInfo.avatarUrl
+                       
+                      },
+                      fail: function (res) {
+                        console.log(res);
+                        wx.showToast({
+                          title: '网络错误，请稍后重试',
+                          icon:'none',
+                        })
+                      }
+                    })
+                  }
+                  else {
+                    wx.redirectTo({
+                      url: '../login/login',
+                    })
+                  }
+                },
+                fail:(res) => {
+                  console.log(res);
+                  wx.showToast({
+                    title: '网络错误，请稍后重试',
+                    icon: 'none',
+                  })
+                }
+              })
   },
 
   /**

@@ -16,7 +16,7 @@
 
 .smiddle
 {
-  width: 25%;
+  width: 30%;
   height: 150rpx;
   align-items: center;
   display: flex;

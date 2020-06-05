@@ -9,9 +9,7 @@
       <view  class="smiddle" bindtap="toMyGroup"><image src="../images/ico/myGroup.png" class="mid-img"></image>
      <text>我运动组</text>
      </view>
-      <view  class="smiddle" bindtap="toMyWork"><image src="../images/ico/myWork.png" class="mid-img"></image>
-     <text>我的作业</text>
-     </view>
+  
       <view  class="smiddle" bindtap="toMyGrade"><image src="../images/ico/myGrade.png" class="mid-img"></image>
      <text>我的成绩</text>
      </view>
@@ -51,28 +49,6 @@
             </view>
         </view>
     </scroll-view>
-
-<!--
-<van-tabbar active="{{ active }}" bind:change="onChange" bindtap="toIndex">
-  <van-tabbar-item info="3"  icon="wap-home-o">
-    <image
-      slot="icon"
-      src="{{ icon.normal }}"
-      mode="aspectFit"
-      style="width: 35px; height: 21px;"
-    />
-    <image
-      slot="icon-active"
-      src="{{ icon.active }}"
-      mode="aspectFit"
-      style="width: 35px; height: 21px;"
-    />
-    首页
-  </van-tabbar-item>
-  <van-tabbar-item icon="tv-o" bindtap="toCourse">课程</van-tabbar-item>
-  <van-tabbar-item icon="user-o" bindtap="toMy">我的</van-tabbar-item>
-</van-tabbar>
--->
 <image src="../images/index/top.jpg" class="top-img"></image>
 
 

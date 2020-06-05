@@ -46,3 +46,8 @@
   font-size: 14px;
   margin-top: 70rpx;
 }
+#head{
+  font-size: 0.8rem;
+  padding-bottom: 10px;
+  color: #a3a3a8;
+}

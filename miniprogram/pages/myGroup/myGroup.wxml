@@ -1,3 +1,47 @@
 <!--miniprogram/pages/myGroup/myGroup.wxml-->
-<text>miniprogram/pages/myGroup/myGroup.wxml</text>
+<!--miniprogram/pages/myClass/myClass.wxml-->
+
+<view>
+        <view class="tabRow">
+            <view bindtap="selectTab" class="tabItem {{currIdx==1?'active':''}}" data-index="1">我加入的组</view>
+            <view bindtap="selectTab" class="tabItem {{currIdx==2?'active':''}}" data-index="2">我创建的组</view>
+        </view>
+
+    <view style="margin-top:100rpx" >
+        <view  wx:if="{{currIdx==1}}">
+             <view  class="courseList" wx:for="{{allCourse}}">
+               <van-row class="one-row">
+                   <van-col span="8">
+                         <view class="list_img"> <image  src="{{item.imgSrc}}"> </image> </view>
+                   </van-col>
+                   <van-col span="16">
+                           <view class="list_text">  
+                                <van-row class="title">{{item.title}}</van-row>
+                                <view  class="date"> <van-row>{{item.date}}</van-row></view>
+                            </view>
+                   </van-col>
+                </van-row>
+            </view>
+            <button  bindtap="" class="download-btn" data-statu="open">加入运动组</button>
+        </view>
+
+        <view wx:if="{{currIdx==2}}">   
+           <view  class="courseList" wx:for="{{allCourse}}">
+               <van-row>
+                   <van-col span="8">
+                     <view class="list_img"> <image  src="{{item.imgSrc}}"> </image></view>
+                   </van-col>
+                   <van-col span="16">
+                        <view class="list_text">  
+                            <van-row class="title">{{item.title}}</van-row>
+                            <view  class="date"><van-row>{{item.date}}</van-row></view>
+                        </view>
+                  </van-col>
+                </van-row>            
+          </view>
+            <button  bindtap="toNew" class="download-btn" data-statu="open">新建运动组</button>
+        </view>
+    </view>
+</view>
+
 

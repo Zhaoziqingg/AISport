@@ -5,12 +5,47 @@ Page({
    * 页面的初始数据
    */
   data: {
+    currIdx: 1,
+    select: 2,
+    imgs:true,
 
+    allCourse:[
+      {
+         imgSrc:"../images/index/拉伸组1.jpg",
+         title:'五分钟拉伸',
+         time:'5',
+         isFinish:true,
+         creator:"1",
+         id:"65",
+         date:"11:23"
+      },
+      {  
+        imgSrc:"../images/index/拉伸组2.jpg",
+         title:'十分钟拉伸',
+         time:'10',
+         isFinish:false,
+         creator:"1",
+         id:"67",
+         date:"11:23"
+      }
+    ]
    
 
   },
   
-  
+        selectTab: function(t) {
+          var e = t.currentTarget.dataset.index;
+          this.setData({
+              currIdx: e
+          }), this.onShow();
+      },
+
+      toNew: function(options)
+      {
+        wx.navigateTo({
+          url: './newGroup/index',
+        })
+      },
   /**
    * 生命周期函数--监听页面加载
    */

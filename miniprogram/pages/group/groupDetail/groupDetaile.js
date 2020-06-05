@@ -1,4 +1,4 @@
-// miniprogram/pages/myWork/myWork.js
+// miniprogram/pages/group/groupDetail/groupDetaile.js
 Page({
 
   /**

@@ -1,0 +1,14 @@
+/* miniprogram/pages/myGroup/newGroup/index.wxss */
+.download-btn {
+  width: 566rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #24C789;
+  border-radius: 100px;
+  font-size: 36rpx;
+  color: #FFFFFF;
+  text-align: center;
+  position:fixed;
+  bottom:20rpx;
+  margin-left: 12%;
+}

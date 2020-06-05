@@ -28,6 +28,10 @@ App({
       multiId:[],
       multiLen:0,
       usrId:'',
+      grp:'',
+      avatarUrl:'',
+      nickName:'',
+      videoId:''
     }
   }
 })

@@ -1,0 +1,32 @@
+<!--miniprogram/pages/myGroup/newGroup/index.wxml-->
+<!--miniprogram/pages/myClass/newClass/index.wxml-->
+
+<form bindsubmit="upfile">
+  <van-field 
+      value="{{name}}"
+      name="name"
+      placeholder="请输入运动组名称"
+      bind:change="onChange"
+    />
+    <van-field 
+      value="{{invitation_code}}"
+      name="invitation_code"
+      placeholder="请输入运动组邀请码"
+      bind:change="onChange"
+    />
+    <van-field 
+      value="{{introdece}}"
+      name="introduce"
+      placeholder="请输入运动组简介"
+      bind:change="onChange"
+      custom-style="height:200px;margin-top:10px"
+    />
+     <van-cell title="选择封面" 
+      is-link
+      custom-style="margin-top:10px"
+      bind:click="chooseCover"
+     />
+    
+     <button  class="download-btn" form-type="submit" >保存</button>
+</form>
+

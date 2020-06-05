@@ -1,40 +1,44 @@
 // miniprogram/pages/course/course.js
+import DirectoryService from '../../service/directory_service.js'
+const app = getApp();
+var directory = null;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    allcourse: [ {
-      imgSrc: "../images/index/瑜伽.jpg",
-      course_type:"瑜伽"
-   }, 
-   {
-    imgSrc: "../images/index/拉伸.jpg",
-    course_type:"拉伸"
-   }, {
-  imgSrc: "../images/index/拉伸1.jpg",
-  course_type:"拉伸"
-  }, {
-  imgSrc: "../images/index/跑步.jpg",
-  course_type:"跑步"
-  }, 
-  ]
-
+    files:[],
   },
 
-  toVideoTrain(options)
+  toVideoTrain(e)
   {
+    //console.log(e)
+    app.globalData.videoId=e.currentTarget.dataset.data._id
+    //console.log("1",app.globalData.videoId)
     wx.navigateTo({
       url: '../course/videoTrain/videoTrain',
     })
+  },
+
+  onReachBottom(){
+    directory.fetch();
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    directory = new DirectoryService({
+      onFileListChange: (res) => {
+        this.setData({ files: res });   
+        app.globalData.myfile = this.data.files;
+     },
+     onFail: (res) => {
+       console.log("res",res);
+      }
+    })
+    directory.fetch();
   },
 
   /**

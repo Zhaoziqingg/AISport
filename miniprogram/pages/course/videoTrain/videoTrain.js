@@ -2,6 +2,7 @@
 const db=wx.cloud.database
 ({env:'aisport-ntl8l'})
 const _=db.command
+const app = getApp();
 wx.cloud.init({env:'aisport-ntl8l'})
 Page({
 
@@ -12,7 +13,10 @@ Page({
     videoUrl:'',
     videoTitle:'',
     id:'',
-    items:[]
+    items:[],
+    time:'',
+    person_account:'',
+    intro:''
 
   },
  
@@ -28,16 +32,17 @@ Page({
   },
   onLoad: function (options) {
     var that =this;
-      db.collection('video').get({
+      db.collection('video').where({_id:app.globalData.videoId}).get({
         success:function(res) {
-          console.log(res.data);
-          console.log(res.data[0].video)
-          that.setData({
-            items: res.data,  
-            videoUrl:res.data[0].video,
-            videoTitle:res.data[0].introduce,
-            id:res.data[0]._id
+          //console.log(res)
+          that.setData({ 
+            videoUrl:res.data[0].cloudpath,
+            videoTitle:res.data[0].title,
+            time:res.data[0].duration,
+            person_account:res.data[0].person_num,
+            intro:res.data[0].introduce
           })
+          console.log(that.data.intro)
         }
       })
   },

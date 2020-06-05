@@ -1,48 +1,37 @@
 // miniprogram/pages/group/index.js
+
+import GroupService from '../../service/group_servive'
+const app = getApp();
+var group = null;
+
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    group_name: '',
-    allGroup:[
-      {
-         imgSrc:"../images/index/拉伸组1.jpg",
-         title:'拉伸运动组',
-         time:'5',
-         isFinish:true,
-         creator:"1",
-         id:"65",
-         date:"11:23"
-      },
-      {  
-        imgSrc:"../images/index/拉伸组2.jpg",
-         title:'瑜伽运动组',
-         time:'10',
-         isFinish:false,
-         creator:"1",
-         id:"67",
-         date:"11:23"
-      }
-    ],
+    files:[],
   },
-      onChange(e) {
-        this.setData({
-          value: e.detail,
-        });
-      },
-      onSearch() {
-        Toast('搜索' + this.data.value);
-      },
-      onClick() {
-        Toast('搜索' + this.data.value);
-      },
+      
+      
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
 
+    group = new GroupService({
+      onGroupListChange: (res) => {
+       // console.log(res)
+        this.setData({ files: res });
+        app.globalData.grp = this.data.files;
+     },
+     onFail: (res) => {
+       //console.log(res);
+      }
+    })
+    group.fetch();
   },
 
   /**

@@ -1,0 +1,121 @@
+/* miniprogram/pages/myClass/myClass.wxss */
+
+.tabRow {
+  display: flex;
+  justify-content: space-around;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: #000;
+  border-bottom: 1rpx solid #eee;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+
+.tabItem:nth-child(2),.tabItem:nth-child(3) {
+  border-left: 2rpx solid #2aaefd;
+}
+
+.tabItem {
+  width: 50%;
+  text-align: center;
+  margin: 30rpx 0;
+  box-sizing: border-box;
+}
+
+.tabItem.active {
+  color: #2aaefd;
+}
+
+.item {
+  height: 400rpx;
+  color: #fff;
+  font-size: 26rpx;
+  line-height: 26rpx;
+  margin: 0 0 20rpx;
+}
+
+.download-btn {
+  width: 566rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #24C789;
+  border-radius: 100px;
+  font-size: 36rpx;
+  color: #FFFFFF;
+  text-align: center;
+  position:fixed;
+  bottom:20rpx;
+  margin-left: 12%;
+  
+}
+
+
+.classify {
+  width: 750rpx;
+  height: 82rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1rpx solid #999;
+  background: #fff;
+  border-bottom: 1rpx solid #ececec;
+}
+
+
+.list_img
+{
+  height: 250rpx;
+  width: 250rpx;
+ 
+  display: flex;
+}
+
+.list_img>image
+{
+  height: 200rpx;
+  width: 200rpx;
+  margin: auto;
+  border-radius: 10rpx;
+}
+
+.list_text
+{
+  margin-top: 25rpx;
+  flex-direction: column;
+ 
+}
+
+.title
+{
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.one-row
+{
+  border-top:2rpx solid #ddd;
+}
+
+.time
+{
+  font-weight: 400;
+  font-size: 14px;
+  color: rgb(99, 98, 98);
+}
+.date
+{
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 70rpx;
+}
+
+  
+
+
+
+
+

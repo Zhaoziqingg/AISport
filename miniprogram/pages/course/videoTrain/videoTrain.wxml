@@ -4,6 +4,11 @@
         <view class="own-video">
             <video controls  bindended="bindEnd" binderror="onPlayError" bindwaiting="onPlayWaiting"  
             id="myVideo" objectFit="cover" src="{{videoUrl}}" autoplay="false"></video>
+            <van-row class="title">
+                <van-col span="4">{{time}}分钟</van-col>
+                <van-col span="16" offset="4">{{person_account}}人学习过</van-col>
+            </van-row>
+                <view class="intro">{{intro}}</view>
         </view>
     </view>
 </view>

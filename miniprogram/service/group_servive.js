@@ -1,24 +1,11 @@
 const app = getApp();
-/**
- * @typedef File
- * @property {string} _id - 文件ID 
- * @property {date} createTime - 文件创建时间
- * @property {boolean} isVideo - 是否为视频
- * @property {string} title - 文件名
- * @property {string} cloudpath - 文件云文件ID
- * @property {number} size - 文件大小，单位字节
- */
+
 
  /**
  * @typedef ErrorMsg
  * @property {string} errMsg - 错误信息
  * @property ...
  */
-
-function is_video(suffix) {
-  let regex = /^.(mp4|flv|gif|jpg|png)$/
-  return regex.test(suffix.toLowerCase());
-}
 
 
 function formatDate(t){
@@ -110,34 +97,32 @@ function getFileInfo(filePath){
 
 /**
  * 提供用户私有目录相关服务
- * {@link DirectoryService~fetch} 拉取更多目录数据
- * {@link DirectoryService~upload} 上传文件
- * {@link DirectoryService~rename} 重命名文件
- * {@link DirectoryService~remove} 移除文件
+ * {@link GroupService~fetch} 拉取更多目录数据
+ * {@link GroupService~upload} 上传信息
  */
 
-export default class DirectoryService{
+export default class DGroupService{
   /**
    * @constructor
    * @param {Object} option
-   * @param {function(Array<File>)} option.onFileListChange - 函数调用成功修改数据后的监听器
+   * @param {function(Array<File>)} option.onGroupListChange - 函数调用成功修改数据后的监听器
    * @param {function(ErrorMsg)} option.onFail - 函数调用失败的监听器
    */
   constructor({
-    onFileListChange = ()=>{},
+    onGroupListChange = ()=>{},
     onFail = ()=>{}
   }){
-    this._setup(onFileListChange,onFail);
+    this._setup(onGroupListChange,onFail);
     wx.cloud.init();
     this._fetching = false;
   }
 
   _fileChanged() {
-    this.onFileListChange(this._getData())
+    this.onGroupListChange(this._getData())
   }
 
-  _setup(onFileListChange,onFail){
-    this.onFileListChange = onFileListChange;
+  _setup(onGroupListChange,onFail){
+    this.onGroupListChange = onGroupListChange;
     this.onFail = onFail
     return this;
   }
@@ -152,59 +137,49 @@ export default class DirectoryService{
     }
     return this._data;
   }
+
+
    /**
-   * 新建课程，有多个请调用多次
+   * 新建运动组
    * @param {Object} options
-   * @param {string} options.filePath - 视频路径
    * @param {string} options.coverPath - 封面路径
    * @param {string} options.publisher - 发布者名字
-   * @param {string} options.title - 课程标题
    * @param {string} options.introduce - 课程简介
-   * @param {string} options.group_name - 所属运动组
-   * @param {string} options.duration - 时间
-   *@param {string} options.person_num - 完成人数
+   * @param {string} options.name - 运动组名字
+   * @param {string} options.invitation_code -邀请码
    * @param {function} options.success - 成功回调
    * @param {function} options.fail - 失败回调，会覆盖初始设置的onFail监听器
    */
 
   upload({
-    filePath,
     coverPath,
-    title,
     introduce,
-    group_name,
-    duration,
+    name,
+    invitation_code,
     success=null,
     fail=null
   }){ 
-    let suffix = getSuffix(filePath);
+    let suffix = getSuffix(coverPath);
     let fileID = generateUUID();
     const db = wx.cloud.database();
-    const filedb = db.collection('video');
-    let fileSize = null;
-    getFileInfo(filePath)
+    const filedb = db.collection('group');
+    getFileInfo(coverPath)
     .then(res => {
-      fileSize = res.size;
       return wx.cloud.uploadFile({
         cloudPath: fileID + suffix,
-        filePath: filePath
+        filePath: coverPath
       });
     }).then(res=>{
       return filedb.add({
         data: {
-          filename: getNowFormatDate() + suffix,
           cloudpath: res.fileID,
-          isVideo:is_video(suffix),
           createTime: db.serverDate(),
-          size: fileSize,
-          title:title,
           introduce:introduce,
-          group_name:group_name,
-          duration:duration,
+          name:name,
           coverPath:coverPath,
+          invitation_code:invitation_code,
           publisher:app.globalData.nickName,
-          publisherId:app.globalData.usrId,
-          person_num:0
+          publisherId:app.globalData.usrId
         }
       })
     }).then(res=>{
@@ -240,7 +215,7 @@ export default class DirectoryService{
     }
     const db = wx.cloud.database();
     const _ = db.command;
-    const filedb = db.collection('video');
+    const filedb = db.collection('group');
     filedb.where({
       createTime: _.lt(lastTimestamp)
     }).orderBy('createTime','desc').get()

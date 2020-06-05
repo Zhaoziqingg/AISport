@@ -2,7 +2,7 @@
 <view class="nav">
     <view class="bg">
         <view class="img-box">
-            <image class="img" mode="widthFix" src="../../images/icon-success.png"></image>
+            <image class="img" mode="widthFix" src="../../../img/icon-success.png"></image>
         </view>
         <view class="over-title">恭喜 完成训练</view>
         <view class="end-main">坚持训练，为了遇见更好的自己</view>

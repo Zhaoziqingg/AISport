@@ -1,10 +1,10 @@
 <!--miniprogram/pages/course/course.wxml-->
 <view>
     <view class="allcourse">
-        <view bindtap="toVideoTrain" data-course_type="{{item.course_type}}" wx:for="{{allcourse}}">
+        <view bindtap="toVideoTrain" data-course_type="{{item.course_type}}"data-data="{{item}}" wx:for="{{files}}" wx:key="_id">
             <view class="dd_mask"></view>
-            <image src="{{item.imgSrc}}"></image>
-            <view class="allcourse-name ">{{item.course_type}}</view>
+            <image src="{{item.coverPath}}"></image>
+            <view class="allcourse-name">{{item.title}}</view>
         </view>
     </view>
 </view>
