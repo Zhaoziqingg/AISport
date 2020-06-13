@@ -67,6 +67,7 @@ button::after {
   color: #FFFFFF;
   text-align: center;
   margin-bottom: 56rpx;
+  margin-top: 20rpx;
 }
 
 .img-box {
@@ -91,4 +92,17 @@ button::after {
 
 .modal-tip {
   line-height: 1;
+}
+.write
+{
+  margin-top: 50px;
+}
+.comment
+{
+  width: 80%;
+  margin-left: 50rpx;
+  height: 120rpx;
+  margin-top: 10rpx;
+  border-radius: 10rpx;
+  border:2px solid #eee;
 }

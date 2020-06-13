@@ -1,9 +1,8 @@
 // miniprogram/pages/course/videoTrain/videoTrain.js
-const db=wx.cloud.database
-({env:'aisport-ntl8l'})
-const _=db.command
+const db=wx.cloud.database()
+
 const app = getApp();
-wx.cloud.init({env:'aisport-ntl8l'})
+
 Page({
 
   /**

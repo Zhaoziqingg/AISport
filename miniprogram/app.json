@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/login/login",
+    "pages/course/endTrain/index",
     "pages/index/index",
     "pages/myClass/myClass",
     "pages/course/course",
@@ -7,10 +9,10 @@
     "pages/myClass/newClass/index",
     "pages/myGrade/myGrade",
     "pages/My/My",
-    "pages/login/login",
+    
     "pages/myGroup/myGroup",
     "pages/course/videoTrain/videoTrain",
-    "pages/course/endTrain/index",
+    
     "pages/myGroup/newGroup/index",
     "pages/group/groupDetail/groupDetaile"
   ],
@@ -25,7 +27,8 @@
     "van-icon": "vant-weapp/icon",
     "van-row": "vant-weapp/row",
     "van-col": "vant-weapp/col",
-    "van-search": "vant-weapp/search"
+    "van-search": "vant-weapp/search",
+    "van-popup": "vant-weapp/popup"
   },
   "tabBar": {
     "list": [

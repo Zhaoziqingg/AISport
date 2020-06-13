@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "完成训练",
-  "usingComponents": {}
+  "usingComponents": {
+    "stars": "../../../components/stars/stars"
+  }
 }

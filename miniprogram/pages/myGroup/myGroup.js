@@ -1,4 +1,5 @@
 // miniprogram/pages/myGroup/myGroup.js
+const app=getApp();
 Page({
 
   /**

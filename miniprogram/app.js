@@ -31,7 +31,9 @@ App({
       grp:'',
       avatarUrl:'',
       nickName:'',
-      videoId:''
+      videoId:'',
+      videoTitle:'',
+      vc:''
     }
   }
 })

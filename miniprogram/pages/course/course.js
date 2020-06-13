@@ -13,9 +13,11 @@ Page({
 
   toVideoTrain(e)
   {
-    //console.log(e)
+    console.log(e)
     app.globalData.videoId=e.currentTarget.dataset.data._id
-    //console.log("1",app.globalData.videoId)
+    app.globalData.videoTitle=e.currentTarget.dataset.data.title
+    app.globalData.vc=e.currentTarget.dataset.data.coverPath
+   // console.log("1111",app.globalData.videoId)
     wx.navigateTo({
       url: '../course/videoTrain/videoTrain',
     })

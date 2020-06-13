@@ -6,6 +6,14 @@
         </view>
         <view class="over-title">恭喜 完成训练</view>
         <view class="end-main">坚持训练，为了遇见更好的自己</view>
-        <button bindtap="toCourse" class="download-btn">更多课程</button>
+           <form bindsubmit="cmt">
+                    <view class='write'>
+                <stars id='score' data-score="0" data-type="write" name="score"></stars>
+                <textarea maxlength="15"  focus='{{focus}}' bindtap='changeFocus'name="value" value="{{value}}" bindinput='input' placeholder='请输入15字以内评论' class="comment"></textarea>
+            </view>
+           
+            <view wx:if="{{focus}}" style="height:250px;opacity:0;"></view>
+        <button form-type="submit" class="download-btn">提交并查看更多课程</button>
+        </form>
     </view>
 </view>

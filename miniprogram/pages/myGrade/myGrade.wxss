@@ -34,9 +34,9 @@
 
 .time
 {
-  font-weight: 300;
+  font-weight: 500;
   font-size: medium;
-  color: rgb(99, 98, 98);
+  color: rgb(238, 14, 14);
 }
 .date
 {

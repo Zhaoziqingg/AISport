@@ -1,40 +1,33 @@
 // miniprogram/pages/myGrade/myGrade.js
+
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
-    allCourse:[
-      {
-         imgSrc:"../../img/拉伸组2.jpg",
-         title:'五分钟拉伸',
-         time:'5',
-         isFinish:true,
-         creator:"1",
-         id:"65",
-         date:"2020/01/03 11:23"
-      },
-      {  
-        imgSrc:"../../img/拉伸组1.jpg",
-         title:'十分钟拉伸（简易版）',
-         time:'10',
-         isFinish:false,
-         creator:"1",
-         id:"67",
-         date:"2020/01/03 11:23"
-      }
-    ]
-  
-
+    list:[],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+      //2.1获取数据库的引用
+      const db=wx.cloud.database()
+      //2.2获取集合的引用
+    db.collection('finishedVideo').where({uid:app.globalData.userId}).get({
+      success:function(res) {
+        //console.log("成绩",res.data)
+        that.setData({ 
+          list:res.data,
+        })
+       
+      }
+    })
   },
 
   /**

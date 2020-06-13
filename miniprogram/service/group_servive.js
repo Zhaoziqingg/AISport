@@ -223,8 +223,6 @@ export default class DGroupService{
       for(var i of res.data){
         console.log(i.createTime);
         i.time = formatDate(i.createTime);
-        // console.log(i.createTime.getFullYear()
-        // +'-'+i.createTime.getMonth()+'-'+i.createTime.getDate())
       }
       this._data = data.concat(res.data);
       this._fetching = false;

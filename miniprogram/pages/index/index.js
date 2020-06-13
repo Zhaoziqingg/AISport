@@ -124,7 +124,7 @@ Page({
              success: res => {
               //console.log('user openid: ', res.result.openid)
               app.globalData.usrId = res.result.openid
-              console.log(app.globalData.usrId)
+             // console.log(app.globalData.usrId)
             },
             fail: err => {
               console.error('[云函数] [login] 调用失败', err)
