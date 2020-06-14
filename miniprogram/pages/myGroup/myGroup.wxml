@@ -9,32 +9,42 @@
 
     <view style="margin-top:100rpx" >
         <view  wx:if="{{currIdx==1}}">
-             <view  class="courseList" wx:for="{{allCourse}}">
+             <view  class="courseList" wx:for="{{list1}}">
                <van-row class="one-row">
                    <van-col span="8">
-                         <view class="list_img"> <image  src="{{item.imgSrc}}"> </image> </view>
+                         <view class="list_img"> <image  src="{{item.cover}}"> </image> </view>
                    </van-col>
                    <van-col span="16">
                            <view class="list_text">  
-                                <van-row class="title">{{item.title}}</van-row>
-                                <view  class="date"> <van-row>{{item.date}}</van-row></view>
+                                <van-row class="title">{{item.name}}</van-row>
+                                <view  class="date"> <van-row>{{item.intro}}</van-row></view>
+                              
                             </view>
                    </van-col>
                 </van-row>
             </view>
-            <button  bindtap="" class="download-btn" data-statu="open">加入运动组</button>
+            <button  bindtap="showPopup" class="download-btn" bind:click="showPopup">加入运动组</button>
+           
+           <form bindsubmit="sub">
+            <van-popup show="{{ show }}" 
+            bind:close="onClose"
+            custom-style="height:400rpx;width:500rpx;border-radius:10rpx">
+             <input placeholder='请输入运动组邀请码' bindinput='input1' class="input"></input>
+              <button form-type="submit" class="ok">提交</button>
+            </van-popup>
+            </form>
         </view>
 
         <view wx:if="{{currIdx==2}}">   
-           <view  class="courseList" wx:for="{{allCourse}}">
+           <view  class="courseList" wx:for="{{list2}}">
                <van-row>
                    <van-col span="8">
-                     <view class="list_img"> <image  src="{{item.imgSrc}}"> </image></view>
+                     <view class="list_img"> <image  src="{{item.coverPath}}"> </image></view>
                    </van-col>
                    <van-col span="16">
                         <view class="list_text">  
-                            <van-row class="title">{{item.title}}</van-row>
-                            <view  class="date"><van-row>{{item.date}}</van-row></view>
+                            <van-row class="title">{{item.name}}</van-row>
+                            <view  class="date"><van-row>邀请码：{{item.invitation_code}}</van-row></view>
                         </view>
                   </van-col>
                 </van-row>            

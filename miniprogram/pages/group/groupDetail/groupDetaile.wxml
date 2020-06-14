@@ -1,2 +1,42 @@
 <!--miniprogram/pages/group/groupDetail/groupDetaile.wxml-->
-<text>miniprogram/pages/group/groupDetail/groupDetaile.wxml</text>
+
+<van-cell-group>
+  <van-cell
+      value="{{name}}"
+      title="运动组名称"
+    />
+    <van-cell
+      title="运动组简介" 
+      value="内容" 
+      label="{{intro}}" 
+      border="{{ false }}"
+      custom-style="height:200px;margin-top:10px"
+    />
+    <van-cell title="运动组封面"
+       
+      custom-style="margin-top:10px"> 
+     <image
+       src="{{cover}}"
+       class="cover"
+     />
+     </van-cell>
+     <van-cell 
+      title="运动组老师" 
+      value="{{publisher}}"
+      custom-style="margin-top:10px"
+     />
+  <view>
+    <view class="allcourse">    
+        <view bindtap="toVideoTrain" data-course_type="{{item.course_type}}"data-data="{{item}}" wx:for="{{allCourse}}" wx:key="_id">
+            <view class="dd_mask"></view>
+            <image src="{{item.coverPath}}"></image>
+            <view class="allcourse-name">{{item.title}}</view>
+        </view>
+    </view>
+  </view>
+
+</van-cell-group>    
+
+
+
+

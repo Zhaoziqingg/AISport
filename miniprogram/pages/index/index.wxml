@@ -21,7 +21,9 @@
             <view class="fight-list-title-icon"></view>
         推荐课程
           </view>
-        <view bindtap="toCourse" class="more_btn">更多课程></view>
+        
+          <navigator style='display: inline' url='../course/course'open-type="switchTab"hover-class="nav-hover"class="more_btn"
+    >更多课程></navigator>
     </view>
 
     <view bindtap="goWritings" class="recommend-list"  wx:for="{{productRecommend}}">

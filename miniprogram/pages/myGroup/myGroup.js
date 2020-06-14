@@ -1,5 +1,6 @@
 // miniprogram/pages/myGroup/myGroup.js
 const app=getApp();
+const db=wx.cloud.database()
 Page({
 
   /**
@@ -9,31 +10,28 @@ Page({
     currIdx: 1,
     select: 2,
     imgs:true,
-
-    allCourse:[
-      {
-         imgSrc:"../images/index/拉伸组1.jpg",
-         title:'五分钟拉伸',
-         time:'5',
-         isFinish:true,
-         creator:"1",
-         id:"65",
-         date:"11:23"
-      },
-      {  
-        imgSrc:"../images/index/拉伸组2.jpg",
-         title:'十分钟拉伸',
-         time:'10',
-         isFinish:false,
-         creator:"1",
-         id:"67",
-         date:"11:23"
-      }
-    ]
+    show:false,
+    groupid:'',
+    code:'',
+    intro:'',
+    cover:'',
+ 
+    groupName:'',
+    list2:[],
+    list1:[],
+    
    
 
   },
-  
+      showPopup() {
+        this.setData({ show: true });
+      },
+      input1: function (e) {
+        this.setData({ code: e.detail.value });
+      },
+      onClose() {
+        this.setData({ show: false });
+      },
         selectTab: function(t) {
           var e = t.currentTarget.dataset.index;
           this.setData({
@@ -51,9 +49,61 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+ 
+    db.collection('group').where({publisherId:app.globalData.usrId}).get({
+    success:function(res) {
+      //console.log("我创建的组",res.data)
+      that.setData({ 
+        list2:res.data,
+      })
+     
+    }
+  })
 
+  db.collection('myGroup').where({uid:app.globalData.usrId}).get({
+    success:function(res) {
+      //console.log("我创建的组",res.data)
+      that.setData({ 
+        list1:res.data,
+      })
+     
+    }
+  })
+  },
+  sub()
+  {
+    var that =this;
+    db.collection("group").where({invitation_code: that.data.code}).get({
+      success:function(res) {
+        console.log("目标运动组",res)
+        that.setData({ 
+          groupid:res.data[0]._id,
+          cover:res.data[0].coverPath,
+          groupName:res.data[0].name,
+          intro:res.data[0].intro,
+        })
+        db.collection("myGroup").add({
+          data:{
+            groupid:that.data.code,
+            cover:that.data.cover,
+            intro:that.data.intro,
+            name:that.data.groupName,
+            uid:app.globalData.usrId
+          },
+        }).then((res) => {
+          wx.showToast({
+            title: '提交成功',
+          });  
+        })    
+      }
+    })
+    this.setData({ show: false });
+    
+    
   },
 
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

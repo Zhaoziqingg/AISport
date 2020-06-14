@@ -1,4 +1,6 @@
 // miniprogram/pages/myClass/myClass.js
+const app=getApp();
+const db=wx.cloud.database()
 Page({
 
   /**
@@ -8,6 +10,8 @@ Page({
         currIdx: 1,
         select: 2,
         imgs:true,
+        list:[],
+        list1:[],
 
         allCourse:[
           {
@@ -49,7 +53,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     
+    var that =this;
+    db.collection('finishedVideo').where({uid:app.globalData.usrId}).get({
+      success:function(res) {
+        console.log(res)
+        that.setData({ 
+          list:res.data
+        })   
+      }
+    })
+    
+    db.collection('video').where({publisherId:app.globalData.usrId}).get({
+      success:function(res) {
+        console.log(res)
+        that.setData({ 
+          list1:res.data
+        })   
+      }
+    })
   },
 
   /**

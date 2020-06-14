@@ -33,7 +33,8 @@ App({
       nickName:'',
       videoId:'',
       videoTitle:'',
-      vc:''
+      vc:'',
+      groupId:''
     }
   }
 })

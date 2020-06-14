@@ -4,6 +4,7 @@ import GroupService from '../../service/group_servive'
 import SearchService from '../../service/group_servive'
 const app = getApp();
 var group = null;
+const db = wx.cloud.database();
 var service = new SearchService({
   onShareListChange: () => { },
   onFail: () => { }
@@ -21,6 +22,8 @@ Page({
     choose: true,
     active: 0,
     list:[],
+    list1:[],
+    t:[],
   },
       
      // 时间戳转时间
@@ -43,18 +46,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
     group = new GroupService({
-      onGroupListChange: (res) => {
-       // console.log(res)
-        this.setData({ files: res });
-        app.globalData.grp = this.data.files;
+      onGroupListChange: (res) => {  
+        that.setData({
+           t: res, 
+           list:res,
+        });
      },
      onFail: (res) => {
-       //console.log(res);
       }
     })
     group.fetch();
+    
+    
   },
 
     // 绑定搜索框值
@@ -65,19 +70,28 @@ Page({
     },
   // 点击搜索
   onSearch(e) {
-    console.log("value",this.data.value);
-    service = new SearchService({
-      onShareListChange: (shareInfo) => {
-          console.log("s",shareInfo)
-          this.setData({
-            list: shareInfo,
-          });
-          console.log(this.data.list)
-        },
-      onFail: () => { }
-    });
-    service.setFilter(this.data.value);
-    service.fetch();
+   // console.log("value",this.data.value);
+   if(this.data.value=='')
+   {
+     this.setData(
+     {
+       list:t
+     });
+     formatDate(list.creatTime)
+   }else{
+    db.collection("group").where({
+      name:this.data.value,
+    }).get({
+      success:res=>{
+        console.log("成功",res)
+        this.setData
+        ({
+          list:res.data
+        })
+        
+      },
+    })
+  }
   },
 
 
@@ -87,6 +101,14 @@ Page({
     console.log(e.currentTarget.dataset.id);
     wx.navigateTo({
       url: '../comment/comment?shareId=' + e.currentTarget.dataset.id
+    })
+  },
+  toGroupDetail(e)
+  {
+    console.log(e)
+    app.globalData.groupId=e.currentTarget.dataset.data._id
+    wx.navigateTo({
+      url: '../group/groupDetail/groupDetaile',
     })
   },
   /**

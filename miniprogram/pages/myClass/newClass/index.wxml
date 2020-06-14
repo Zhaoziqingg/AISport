@@ -8,7 +8,7 @@
       bind:change="onChange"
     />
     <van-field 
-      value="{{introdece}}"
+      value="{{introduce}}"
       name="introduce"
       placeholder="请输入课程简介"
       bind:change="onChange"
@@ -24,11 +24,12 @@
       custom-style="margin-top:10px"
       bind:click="chooseCover"
      />
-     <van-cell title="选择运动组" 
-      is-link
-      custom-style="margin-top:10px"
-      bind:click="chooseGroup"
-     />
+     <van-field 
+      value="{{group_name}}"
+      name="group_name"
+      placeholder="请输入运动组名称"
+      bind:change="onChange"
+    />
      <van-field 
       value="{{duration}}"
       type="number"

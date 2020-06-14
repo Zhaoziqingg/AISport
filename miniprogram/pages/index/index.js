@@ -59,6 +59,7 @@ Page({
   },
   toVideoTrain(options)
   {
+    app.globalData.videoId="f2a60d815ed8bbc3003f8ae44d38307a"
     wx.navigateTo({
       url: '../course/videoTrain/videoTrain',
     })

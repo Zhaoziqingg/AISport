@@ -8,16 +8,16 @@
 
     <view style="margin-top:100rpx" >
         <view  wx:if="{{currIdx==1}}">
-             <view  class="courseList" wx:for="{{allCourse}}">
+             <view  class="courseList" wx:for="{{list}}">
                <van-row class="one-row">
                    <van-col span="8">
-                         <view class="list_img"> <image  src="{{item.imgSrc}}"> </image> </view>
+                         <view class="list_img"> <image  src="{{item.cover}}"> </image> </view>
                    </van-col>
                    <van-col span="16">
                            <view class="list_text">  
-                                <van-row class="title">{{item.title}}</van-row>
-                                <van-row class="time">{{item.time}}分钟</van-row>
-                                <view  class="date"> <van-row>{{item.date}}</van-row></view>
+                                <van-row class="title">{{item.vTitle}}</van-row>
+                                <van-row class="time">{{item.score}}分</van-row>
+                                <view  class="date"> <van-row>{{item.comment}}</van-row></view>
                             </view>
                    </van-col>
                 </van-row>
@@ -25,16 +25,16 @@
         </view>
 
         <view wx:if="{{currIdx==2}}">   
-           <view  class="courseList" wx:for="{{allCourse}}">
+           <view  class="courseList" wx:for="{{list1}}">
                <van-row>
                    <van-col span="8">
-                     <view class="list_img"> <image  src="{{item.imgSrc}}"> </image></view>
+                     <view class="list_img"> <image  src="{{item.coverPath}}"> </image></view>
                    </van-col>
                    <van-col span="16">
                         <view class="list_text">  
                             <van-row class="title">{{item.title}}</van-row>
-                            <van-row class="time">{{item.time}}分钟</van-row>
-                            <view  class="date"><van-row>{{item.date}}</van-row></view>
+                            <van-row class="time">{{item.duration}}分钟</van-row>
+                            <view  class="date"><van-row>{{item.introduce}}</van-row></view>
                         </view>
                   </van-col>
                 </van-row>            

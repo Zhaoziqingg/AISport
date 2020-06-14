@@ -53,11 +53,12 @@ Page({
                         var introduce = this.data.introduce;
                         var duration = this.data.duration;
                         var coverPath = this.data.coverPath;
+                        var group_name = this.data.group_name;
                         directory.upload({
                           coverPath:coverPath,
                           filePath: path,
                           title:title,
-                          group_name:"瑜伽",
+                          group_name:group_name,
                           introduce:introduce,
                           duration:duration,
                           success:(res)=>{
